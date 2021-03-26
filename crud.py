@@ -12,6 +12,21 @@ def create_user(email, password):
 
     return user
 
+def get_all_users():
+    """Display all users."""
+
+    return db.session.query(User).all()
+
+def get_user_by_id(user_id):
+    """Return a user object given a user id."""
+
+    return User.query.get(user_id)
+
+def get_user_by_email(email):
+    """Return a user object given an email, else None."""
+
+    return User.query.filter(User.email == email).first()
+
 def create_movie(title, overview, release_date, poster_path):
     """Create and return a new movie."""
 
