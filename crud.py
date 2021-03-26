@@ -25,6 +25,17 @@ def create_movie(title, overview, release_date, poster_path):
 
     return movie
 
+def get_all_movies():
+    """Display all movies."""
+
+    return db.session.query(Movie).all()
+
+def get_movie_by_id(movie_id):
+    """Return a movie object given a movie id."""
+
+    return Movie.query.get(movie_id)
+
+
 def create_rating(score, user, movie):
     """Create and return a new rating (score)."""
 
